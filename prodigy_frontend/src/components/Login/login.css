@@ -1,0 +1,54 @@
+.container1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    text-decoration: none;
+    
+}
+
+.submitButton {
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 250px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    font-family: verdana;
+
+}
+.submit{
+    text-decoration: none;
+    display: none;
+}
+div{
+    text-decoration: none;
+    text-align: center;    
+}
+
+.spaceTop{
+    text-decoration: none;
+    margin-top: 100px;
+}
+.labelLogin{
+    text-decoration: none;
+    display: block;
+    color:  black;
+    font-size: 15px;
+    font-family: verdana;
+    transition: 0.4s;
+    position: relative;
+    margin-top: 20px;
+    margin-right: 150px;
+}
+.loginInput{
+    border: none;
+    border-radius: 25px;
+    height: 50px;
+    width: 250px;
+    margin-bottom: 10px;
+    padding: 0px;
+}
