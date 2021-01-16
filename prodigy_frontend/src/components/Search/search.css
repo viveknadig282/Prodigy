@@ -9,7 +9,10 @@
     padding: 10px;
     z-index: 1;
 }
-
+*.focus{
+    border: none;
+    outline: none;
+}
 .in{
     height: 50px;
     width: 400px;

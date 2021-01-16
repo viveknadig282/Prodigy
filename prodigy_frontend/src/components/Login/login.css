@@ -6,7 +6,10 @@
     text-decoration: none;
     
 }
-
+*.focus{
+    border: none;
+    outline: none;
+}
 .submitButton {
     border-radius: 25px;
     display: flex;
