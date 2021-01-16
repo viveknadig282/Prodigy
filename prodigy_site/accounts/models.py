@@ -37,13 +37,13 @@ class Profile(models.Model):
     STUDY_TIME2 = 2
     STUDY_TIME3 = 3
     STUDY_TIME4 = 4
-    STUDY_CHOCIES = [
+    STUDY_CHOICES = [
         (STUDY_TIME1, '1-3 hours'),
         (STUDY_TIME2, '4-6 hours'),
         (STUDY_TIME3, '6-8 hours'),
         (STUDY_TIME4, '10-12 hours'),
     ]
-    study_time = models.PositiveSmallIntegerField()
+    study_time = models.PositiveSmallIntegerField(choices=STUDY_CHOICES, default=1)
 
     ARCHITECURE = 1
     ARTS = 2
@@ -52,16 +52,16 @@ class Profile(models.Model):
     SOCIAL = 5
     EDUCATION = 6
     STEM = 7
-    CARRER_CHOICES = [
+    CAREER_CHOICES = [
         (ARCHITECURE, 'Architecture and engineering'),
         (ARTS, 'Arts, culture, and entertainment'),
-        (BUSINESS, 'Business, management, and administration')
+        (BUSINESS, 'Business, management, and administration'),
         (COMMS, 'Communications'),
         (SOCIAL, 'Community and social services'),
         (EDUCATION, 'Education'),
         (STEM, 'Science and technology')
     ]
-    careers_interest = models.PositiveSmallIntegerField()
+    careers_interest = models.PositiveSmallIntegerField(choices=CAREER_CHOICES, default=1)
     sports_interest = models.PositiveSmallIntegerField()
 
     def get_age_category(self):

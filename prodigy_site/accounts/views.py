@@ -4,25 +4,33 @@ from django.http import JsonResponse
 from .models import Profile, Subject
 from django.contrib.auth.models import User
 from rest_framework import viewsets
+from django.contrib.auth import authenticate
+
 from .serializers import ProfileSerializer
 from classes.recommendations import sim
+from .forms import ProfileForm
+from django.views.decorators.csrf import csrf_exempt
+
 
 
 class ProfileView(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.all()
 
-
+@csrf_exempt
 def login(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        # Redirect to a success page.
+    form = ProfileForm(request.POST)
+    if form.is_valid():
+        user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+        if user is not None:
+            # A backend authenticated the credentials
+            login(request, user)
+            return JsonResponse({'valid': True, 'form': form.cleaned_data})
+        else:
+            return JsonResponse({'valid': False})
     else:
-        # Return an 'invalid login' error message.
-        pass
+        return JsonResponse({'error': form.errors})
+            # return HttpResponseRedirect('/thanks/')
 
 
 def logout_view(request):
