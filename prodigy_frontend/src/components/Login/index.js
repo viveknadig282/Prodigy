@@ -2,8 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import './login.css'
 
-import {SubmitLink} from './LoginElement'
-
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -38,6 +36,7 @@ class Login extends React.Component {
                     validity: "The username or password was incorrect"
                 })
             } else {
+
                 this.setState({
                     passwordStatus: "",
                     usernameStatus: "",
