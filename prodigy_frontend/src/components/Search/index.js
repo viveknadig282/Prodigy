@@ -4,11 +4,11 @@ import {SearchLink} from './SearchElement'
 import {AiOutlineSearch} from 'react-icons/ai';
 
 
-
 const Search = () => {
     function handleClick(e) {
         e.preventDefault();
-        console.log(document.getElementById("subject").value);
+        // console.log(document.getElementById("subject").value);
+        // const searchObj={search: document.getElementById("subject").value};
     }
     return (
         <>
@@ -25,6 +25,8 @@ const Search = () => {
         </>
     )
 }
+
+
 
 
 export default Search;
