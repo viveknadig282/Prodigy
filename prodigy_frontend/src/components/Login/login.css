@@ -1,57 +1,61 @@
-.container1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    text-decoration: none;
-    
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  text-decoration: none;
 }
-*.focus{
-    border: none;
-    outline: none;
+*.focus {
+  border: none;
+  outline: none;
 }
 .submitButton {
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    width: 250px;
-    background-color: blue;
-    color: white;
-    text-decoration: none;
-    font-family: verdana;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 250px;
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+  font-family: verdana;
+}
+.submit {
+  text-decoration: none;
+  display: none;
+}
+div {
+  text-decoration: none;
+  text-align: center;
+}
 
+.spaceTop {
+  text-decoration: none;
+  margin-top: 100px;
 }
-.submit{
-    text-decoration: none;
-    display: none;
+.labelLogin {
+  text-decoration: none;
+  display: block;
+  color: black;
+  font-size: 15px;
+  font-family: verdana;
+  transition: 0.4s;
+  position: relative;
+  margin-top: 20px;
+  margin-right: 150px;
 }
-div{
-    text-decoration: none;
-    text-align: center;    
-}
-
-.spaceTop{
-    text-decoration: none;
-    margin-top: 100px;
-}
-.labelLogin{
-    text-decoration: none;
-    display: block;
-    color:  black;
-    font-size: 15px;
-    font-family: verdana;
-    transition: 0.4s;
-    position: relative;
-    margin-top: 20px;
-    margin-right: 150px;
-}
-.loginInput{
-    border: none;
-    border-radius: 25px;
-    height: 50px;
-    width: 250px;
-    margin-bottom: 10px;
-    padding: 0px;
+.loginInput {
+  border: none;
+  font-size: 17px;
+  border-radius: 25px;
+  height: 50px;
+  width: 250px;
+  margin-bottom: 10px;
+  /* padding: 0px; */
+  padding-left: 6px;
+  padding-right: 6px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
