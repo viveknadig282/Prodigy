@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import Profile, Subject
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Class(models.Model):
@@ -23,7 +24,12 @@ class Class(models.Model):
 
 class Review(models.Model):
     text = models.CharField(max_length=1000)
-    rating = models.PositiveIntegerField()
+    rating = models.IntegerField(
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+    )
     class_for = models.ForeignKey(Class, on_delete=models.CASCADE)
     user_for = models.ForeignKey(
         Profile, on_delete=models.CASCADE, related_name='user_reviewed')
