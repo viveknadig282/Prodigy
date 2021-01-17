@@ -27,5 +27,7 @@ class ClassSerializer():
 
             self.serialized['avr_reviews'] = sum/len(reviews)
 
+        self.data = self.serialized
+
     def get_serialized(self):
         return self.serialized
