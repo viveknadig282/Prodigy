@@ -41,7 +41,6 @@ def login(request):
 def signup(request):
     form = ProfileCreationForm(request.POST)
     if form.is_valid():
-        print(form.cleaned_data)
         user = User(username=form.cleaned_data['username'],
                     password=form.cleaned_data['password'], email=form.cleaned_data['email'])
         user.save()
@@ -49,6 +48,7 @@ def signup(request):
             user=user, age=form.cleaned_data['age'], gender=form.cleaned_data['gender'])
         profile.save()
         auth_login(request, user)
+        return JsonResponse({'valid': True})
     else:
         return JsonResponse({'error': form.errors})
 

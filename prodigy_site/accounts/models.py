@@ -92,5 +92,5 @@ class Profile(models.Model):
     # def get_sports_interest_shifted(self):
     #     return self.sports_interest + 36
 
-    # def __str__(self):
-    #     return self.user.username
+    def __str__(self):
+        return self.user.username
