@@ -1,1 +1,1 @@
-# Paidgogos
+# Prodigy: become a prodigy
