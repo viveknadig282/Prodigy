@@ -46,7 +46,9 @@ div {
   margin-right: 150px;
 }
 #password,
-#username {
+#username,
+#email,
+#age {
   border: none;
   font-size: 17px;
   border-radius: 25px;
@@ -54,8 +56,8 @@ div {
   width: 250px;
   margin-bottom: 10px;
   /* padding: 0px; */
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;

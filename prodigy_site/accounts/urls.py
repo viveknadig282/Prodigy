@@ -9,6 +9,6 @@ router.register(r'profiles', views.ProfileView, basename='profiles')
 
 urlpatterns = [
     path('login', views.login, name='login'),
-    path('test', views.test, name='test'),
+    path('signup', views.signup, name='signup'),
     path('api/', include(router.urls), name='profiles'),
 ]
