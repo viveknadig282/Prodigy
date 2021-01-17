@@ -27,16 +27,21 @@ function connectButtonHandler(event) {
         }
         button.disabled = true;
         shareScreen.disabled = true;
+        console.log("Share Screen disabled");
         button.innerHTML = 'Connecting...';
         connect(username).then(() => {
             button.innerHTML = 'Leave call';
             button.style.background = '#E93D3D'
             button.disabled = false;
             shareScreen.disabled=false;
+            console.log("Share Screen enabled");
         }).catch(() => {
             alert('Connection failed. Is the backend running?');
             button.innerHTML = 'Join call';
-            button.disabled = false;    
+            button.disabled = false;
+            shareScreen.disabled=true;
+            console.log("Share Screen disabled");
+
         });
     }
     else {
@@ -45,6 +50,7 @@ function connectButtonHandler(event) {
         connected = false;
         shareScreen.innerHTML = 'Share screen'
         shareScreen.disabled = true;
+        console.log("Share Screen disabled");
     }
 };
 
@@ -144,12 +150,12 @@ function shareScreenHandler() {
         });
     }
     else {
-        disconnect();
         room.localParticipant.unpublishTrack(screenTrack);
         screenTrack.stop();
         screenTrack = null;
+        shareScreen.disabled = false;
+        console.log("Share Screen enabled");
         shareScreen.innerHTML = 'Share screen';
-        shareScreen.disabled = true;
     }
 };
 
