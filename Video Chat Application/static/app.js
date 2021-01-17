@@ -7,7 +7,6 @@ let room;
 const shareScreen = document.getElementById('share_screen')
 var screenTrack;
 
-
 function addLocalVideo() {
     Twilio.Video.createLocalVideoTrack().then(track => {
         let video = document.getElementById('local').firstChild;
@@ -96,11 +95,6 @@ function participantConnected(participant) {
     let labelDiv = document.createElement('div');
     labelDiv.innerHTML = participant.identity;
     participantDiv.appendChild(labelDiv);
-
-    var labelDiv2 = document.createElement('div');
-    labelDiv2.setAttribute('class', 'label');
-    labelDiv2.innerHTML = participant.identity;
-    participantDiv.appendChild(labelDiv2);
 
     container.appendChild(participantDiv);
 
