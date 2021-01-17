@@ -30,7 +30,6 @@ def login(request):
             return JsonResponse({'valid': False})
     else:
         return JsonResponse({'error': form.errors})
-            # return HttpResponseRedirect('/thanks/')
 
 
 def logout_view(request):
