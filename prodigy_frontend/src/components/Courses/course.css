@@ -1,0 +1,65 @@
+*{
+    outline:none;
+}
+
+.Course_container{
+    border-radius: 15px;
+    background-color: #133C55;
+    width: 250px;
+    height: 150px;
+    margin-top: 50px;
+    padding-top: 0px;
+    box-shadow: 0 9px #ffffff;
+    
+}
+.Course_container:hover span{
+    padding-right: 5px;
+}
+.Course_container:active{
+    background-color: #133C55;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    outline: none;
+    border: none;
+      
+}
+.Overall_Container{
+    justify-content: space-around;
+    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px;
+    padding-left: 120px;
+    margin-top: 80px;
+}
+
+.Course_name{
+    text-align: start;
+    margin-left: 10px;
+    font-size: 18px;
+    color: white;
+}
+.Course_teacher{
+    text-align: start;
+    margin-left: 10px;
+    font-weight: normal;
+    font-family: verdana;
+    font-size: 15px;
+    margin-top: -20px;
+    color: white;
+
+}
+.Course_cost{
+    height: 40px;
+    width: 40px;
+    float: right;
+    margin-top: -75px;
+    margin-right: 5px;
+    color: white;
+    text-align: center;
+    border-radius: 90px;
+
+}
+.Course_rating{
+    color: white;
+}

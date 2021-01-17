@@ -1,36 +1,56 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import authenticate, logout
 from django.http import JsonResponse
-from .models import Profile, Subject
 from django.contrib.auth.models import User
-from rest_framework import viewsets
 from django.contrib.auth import authenticate
+from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework import viewsets
 
 from .serializers import ProfileSerializer
 from classes.recommendations import sim
-from .forms import ProfileForm
-from django.views.decorators.csrf import csrf_exempt
-
+from .forms import ProfileCreationForm, ProfileForm
+from .models import Profile, Subject
 
 
 class ProfileView(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.all()
 
+
 @csrf_exempt
+@require_http_methods(['POST'])
 def login(request):
     form = ProfileForm(request.POST)
     if form.is_valid():
-        user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+        user = authenticate(
+            username=form.cleaned_data['username'], password=form.cleaned_data['password'])
         if user is not None:
             # A backend authenticated the credentials
-            login(request, user)
+            auth_login(request, user)
             return JsonResponse({'valid': True, 'form': form.cleaned_data})
         else:
             return JsonResponse({'valid': False})
     else:
         return JsonResponse({'error': form.errors})
-            # return HttpResponseRedirect('/thanks/')
+
+
+@csrf_exempt
+@require_http_methods(['POST'])
+def signup(request):
+    form = ProfileCreationForm(request.POST)
+    if form.is_valid():
+        user = User(username=form.cleaned_data['username'],
+                    password=form.cleaned_data['password'], email=form.cleaned_data['email'])
+        user.save()
+        profile = Profile(
+            user=user, age=form.cleaned_data['age'], gender=form.cleaned_data['gender'])
+        profile.save()
+        auth_login(request, user)
+        return JsonResponse({'valid': True})
+    else:
+        return JsonResponse({'error': form.errors})
 
 
 def logout_view(request):
