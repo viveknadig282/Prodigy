@@ -14,6 +14,7 @@ env
 */build
 
 # misc
+**/*/.eslint*
 .DS_Store
 .env.local
 .env.development.local

@@ -10,7 +10,22 @@ class ProfileCreationForm(forms.Form):
         label='Your password', widget=forms.PasswordInput, max_length=100)
     email = forms.EmailField(label='Your email')
     age = forms.IntegerField(label='Your age')
-    gender = forms.BooleanField(label='Your gender')
+    gender = forms.BooleanField(
+        label='Your gender', required=False, initial=False)
+
+    def clean_gender(self):
+        gender = self.cleaned_data['gender']
+        print(gender)
+
+        if type(gender) == type(True):
+            return gender
+
+        if gender.lower() == 'true':
+            return True
+        elif gender.lower() == 'false':
+            return False
+        else:
+            raise ValidationError("Gender could not be read")
 
     def clean_username(self):
         username = self.cleaned_data['username']

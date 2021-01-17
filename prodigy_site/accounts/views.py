@@ -40,7 +40,9 @@ def login(request):
 @require_http_methods(['POST'])
 def signup(request):
     form = ProfileCreationForm(request.POST)
+
     if form.is_valid():
+        print(form.cleaned_data)
         user = User(username=form.cleaned_data['username'],
                     password=form.cleaned_data['password'], email=form.cleaned_data['email'])
         user.save()
