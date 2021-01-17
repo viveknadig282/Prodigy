@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import './login.css'
+import { __esModule } from 'react-star-ratings/build/star-ratings';
 
 class Login extends React.Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class Login extends React.Component {
         })
         let data = new FormData();
         data.append('username', document.getElementById("username").value);
+        
         data.append('password', document.getElementById("password").value);
         let response = await axios({
             method: 'post',

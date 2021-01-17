@@ -1,0 +1,161 @@
+.infoCost{
+    font-size: 20px;
+    display: block;
+    position: absolute;
+    right: 75px;
+    top: 300px;
+
+    background-color: #133C55;
+    color: white;
+    height: 150px;
+    width: 250px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.callBtn{
+    height: 75px;
+    width: 75px;
+    border-radius: 20px;
+    position: absolute;
+    right: 600px;
+    top: 100px;
+    background-color: #133C55;;
+    font-family: verdana;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 9px #ffffff;
+    
+}
+.chatBtn{
+    height: 75px;
+    width: 75px;
+    border-radius: 20px;
+    position: absolute;
+    right: 480px;
+    top: 100px;
+    background-color: #133C55;;
+    font-family: verdana;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 9px #ffffff;
+}
+.chatBtn:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+.callBtn:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+.bigContain{
+    border-radius: 20px;
+    height: 650px;
+    width: 1250px;
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    background-color: #133C55;
+    word-wrap: break-word;
+}
+.smallCon{
+    border-radius: 20px;
+    height: 600px;
+    width: 1200px;
+    word-wrap: break-word;
+    position: absolute;
+    left: 25px;
+    font-family: verdana;
+    font-size: 20px;
+    background-color: white;
+
+}
+.chatBtn:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.callBtn:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.costLabel{
+    font-size: 25px;
+    padding-top: 20px;
+    font-family: verdana;
+    flex: 0 0 120px;
+}
+.infoTeach{
+    font-size: 20px;
+    display: block;
+    position: absolute;
+    right: 75px;
+    top: 100px;
+    background-color: #133C55;
+    color: white;
+    height: 150px;
+    width: 250px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.teachLabel{
+    font-size: 25px;
+    padding-top: 20px;
+    font-family: verdana;
+    flex: 0 0 120px;
+}
+.infoRat{
+    font-size: 20px;
+    display: block;
+    position: absolute;
+    right: 75px;
+    top: 500px;
+    background-color: #133C55;
+    color: white;
+    height: 150px;
+    width: 250px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.infoSubject{
+    font-size: 20px;
+    display: block;
+    position: absolute;
+    right: 75px;
+    top: 700px;
+    background-color: #133C55;
+    color: white;
+    height: 150px;
+    width: 250px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.infoName{
+    font-size: 20px;
+    display: block;
+    position: absolute;
+    left: 200px;
+    top: 100px;
+    background-color: #133C55;
+    color: white;
+    height: 75px;
+    width: 1000px;
+    border-radius: 20px;
+    text-align: center;
+
+}
+.ratLabel{
+    font-size: 25px;
+    padding-top: 20px;
+    font-family: verdana;
+    flex: 0 0 120px;
+}
+.nameLabel{
+    font-size: 25px;
+    padding-top: -20px;
+    font-family: verdana;
+    flex: 0 0 120px;
+}
