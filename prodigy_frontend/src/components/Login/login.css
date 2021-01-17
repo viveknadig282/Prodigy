@@ -21,10 +21,10 @@
   text-decoration: none;
   font-family: verdana;
 }
-.submit {
+/* .submit {
   text-decoration: none;
   display: none;
-}
+} */
 div {
   text-decoration: none;
   text-align: center;
@@ -45,7 +45,8 @@ div {
   margin-top: 20px;
   margin-right: 150px;
 }
-.loginInput {
+#password,
+#username {
   border: none;
   font-size: 17px;
   border-radius: 25px;
@@ -58,4 +59,9 @@ div {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+.error {
+  color: #d8000c;
+  font-size: 15px;
+  font-family: verdana;
 }
