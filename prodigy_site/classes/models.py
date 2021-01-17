@@ -12,6 +12,14 @@ class Class(models.Model):
     def __str__(self):
         return f"{self.name} by {self.teacher.user.username} for ${self.cost}"
 
+# {
+#     "name": "NAME OF CLASS",
+#     "subject": "SUBJECT OBJECT: MATH, SCIENCE",
+#     "teacher": "PROFILE OBJECT",
+#     "desc": "800 CHAR DESC OF CLASS",
+#     "cost": "COST IN DOLLARS"
+# }
+
 
 class Review(models.Model):
     text = models.CharField(max_length=1000)
