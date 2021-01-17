@@ -1,0 +1,12 @@
+{
+    "courses": [
+        {
+            "name": "Brayden Tam",
+            "subject": "Conics",
+            "teacher": "thefortniteguy",
+            "desc": "I will teach you conics: ellipse, triangles, squares, and how to realize that no one cares or asked",
+            "cost": "99",
+            "avr_rating": "4.0"
+        }
+    ]
+}
