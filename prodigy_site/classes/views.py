@@ -19,6 +19,12 @@ def ClassViewSet(request):
     for query in queryset:
         serialized = ClassSerializer(query).data
         reviews = Review.objects.filter(class_for=query)
+        teacher = query.teacher
+        subject = query.subject
+
+        serialized["subject"] = subject.name
+        serialized["teacher"] = teacher.user.username
+
         if len(reviews) == 0:
             serialized['avr_reviews'] = 0
         else:

@@ -12,7 +12,7 @@ function Class(props) {
             <button className="Course_container" id={`class${props.value}`} onClick={props.onClick}>
                 <span>
                     <CourseLink to="/infopage">
-                        <h3 className="Course_name">{props.name}</h3>
+                        <h3 className="Course_name">{props.desc}</h3>
                         <h3 className="Course_teacher">{props.teacher}</h3>
                         <h3 className="Course_cost">{props.cost}</h3>
                         <StarRatings
@@ -30,13 +30,6 @@ function Class(props) {
 }
 
 class Course extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            courses: courses.courses
-        }
-    }
-
     createClass = (item, i) => {
         return <Class value={i} onClick={this.handleClick} name={item.name} teacher={item.teacher} cost={item.cost} avr_rating={item.avr_rating}/>
     }
@@ -49,7 +42,7 @@ class Course extends React.Component {
     render() {
         return <>
             <div class="Overall_Container">
-                {this.state.courses.map((item, i) => {return this.createClass(item, i)})}
+                {this.props.courses.map((item, i) => {return this.createClass(item, i)})}
             </div>
             </>
     }
