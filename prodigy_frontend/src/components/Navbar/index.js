@@ -9,6 +9,9 @@ const Navbar = () => {
                   <img src="favicon.ico" alt="Logo"></img>
               </NavLink>
               <NavBtn>
+              <NavBtnLink to="/listing">Add Course</NavBtnLink>
+              </NavBtn>
+              <NavBtn>
               <NavBtnLink to="/about">About</NavBtnLink>
               </NavBtn>
               <NavBtn>
@@ -17,6 +20,7 @@ const Navbar = () => {
               <NavBtn>
               <NavBtnLink to="/signup">Sign Up</NavBtnLink>
               </NavBtn>
+              
               
 
           </Nav>

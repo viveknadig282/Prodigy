@@ -8,6 +8,7 @@ import signin from './pages/signin';
 import signup from './pages/signup';
 import courses from './pages/courses';
 import infopage from './pages/infopage';
+import listing from './pages/listing';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signup" exact component={signup} />
         <Route path="/courses" exact component={courses} />
         <Route path="/infopage" exact component={infopage} />
+        <Route path="/listing" exact component={listing} />
       </Switch>
     </Router>
   );
