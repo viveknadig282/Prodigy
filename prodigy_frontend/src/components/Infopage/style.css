@@ -60,6 +60,29 @@
     background-color: #133C55;
     word-wrap: break-word;
 }
+.rlabel{
+    margin-top: 13px;
+    font-size: 18px;
+}
+.addR{
+    height: 75px;
+    width: 75px;
+    border-radius: 20px;
+    position: absolute;
+    left: 200px;
+    top: 100px;
+    background-color: #133C55;;
+    font-family: verdana;
+    align-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 9px #ffffff;
+}
+.addR:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
 .smallCon{
     border-radius: 20px;
     height: 600px;
@@ -137,12 +160,12 @@
     font-size: 20px;
     display: block;
     position: absolute;
-    left: 200px;
+    left: 300px;
     top: 100px;
     background-color: #133C55;
     color: white;
     height: 75px;
-    width: 1000px;
+    width: 900px;
     border-radius: 20px;
     text-align: center;
 

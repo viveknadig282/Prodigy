@@ -2,6 +2,7 @@ import React from 'react'
 import course from './info.json'
 import './style.css'
 import StarRatings from 'react-star-ratings';
+import {addRate} from './rateElement'
 const Infopage = () => {
     
     return (
@@ -26,6 +27,7 @@ const Infopage = () => {
                 ))}
             <button id="video_button" class="callBtn" onClick={()=>window.open("https://3575491e0956.ngrok.io")}>Call</button>
             <button class="chatBtn">Chat</button>
+            <a href="http://localhost:3000/rating" class="addR"><p class="rlabel">Rate Course</p></a>
         </>
     );
 }
