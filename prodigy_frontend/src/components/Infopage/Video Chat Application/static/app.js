@@ -3,6 +3,7 @@ const usernameInput = document.getElementById('username');
 const button = document.getElementById('join_leave');
 const container = document.getElementById('container');
 const count = document.getElementById('count');
+const column = document.getElementsByClassName("column");
 let room;
 const shareScreen = document.getElementById('share_screen')
 var screenTrack;

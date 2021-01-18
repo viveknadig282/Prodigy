@@ -6,15 +6,37 @@
     height: 75px;
     padding-left: 45px;
     border-radius: 20px;
-
+    outline: black;
+    border: 1px;
 }
 
 .rateDesc{
     margin-top: 40px;
-    width: 260px;
+    width: 250px;
     padding: 20px 20px;
     height: 500px;
     font-family: verdana;
     font-size: 17px;
     border-radius: 20px;
+    margin-left: 0%;
+}
+
+.submitR{
+    height: 75px;
+    width: 305px;
+    border-radius: 20px;
+    background-color: #133C55;;
+    font-family: verdana;
+    margin-top: 40px;
+    text-decoration: none;
+    display: flex;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 9px #ffffff;
+    margin-left: 42%;
+}
+.slabel{
+    margin-top: 25px;
+    margin-left: 39%;
+    font-size: 18px;
 }
