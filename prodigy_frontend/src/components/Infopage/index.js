@@ -1,10 +1,30 @@
 import React from 'react'
 import course from './info.json'
 import './style.css'
+import { withRouter } from "react-router";
 import StarRatings from 'react-star-ratings';
+<<<<<<< HEAD
 
 const Infopage = () => {
     
+=======
+import axios from 'axios';
+
+class Infopage extends React.Component {
+    constructor(props) {
+        super(props)
+        const id = this.props.match.params.id;
+    }
+
+    getClassData = id => {
+        return axios({
+            url: `http://127.0.0.1:8000/classes/id/${id}`,
+            method: "get",
+        })
+    }
+
+    render() {
+>>>>>>> d166a0c234d3dc764bc1091ee8f9f0f5047313ad
     return (
         <>
              {course.course.map((item, i) => (
@@ -27,9 +47,9 @@ const Infopage = () => {
                 ))}
             <button id="video_button" class="callBtn" onClick={()=>window.open("https://3575491e0956.ngrok.io")}>Call</button>
             <button class="chatBtn">Chat</button>
-            <a href="http://localhost:3000/rating" class="addR"><p class="rlabel">Rate Course</p></a>
         </>
     );
+    }
 }
 
-export default Infopage;
+export default withRouter(Infopage);

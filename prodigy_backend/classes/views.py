@@ -6,9 +6,9 @@ from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
 
-from accounts.models import Profile
+from accounts.models import Profile, Subject
 from .recommendations import *
-from .serializers import ClassSerializer, ClassModelSerializer
+from .serializers import ClassSerializer, ClassModelSerializer, SubjectSerializer
 from .models import Class, Review
 from .forms import NewClassForm
 
@@ -47,9 +47,18 @@ def createClassView(request):
         cost = form.cleaned_data['cost']
         desc = form.cleaned_data['desc']
 
-        teacher = Profile
-        class_object = Class()
+        teacher = Profile.objects.filter(pk=teacher_id).first()
+        subject = Subject.objects.filter(pk=subject_id).first()
+
+        class_object = Class(name=name, desc=desc, cost=cost,
+                             teacher=teacher, subject=subject)
+        class_object.save()
 
         return JsonResponse({'data': form.cleaned_data})
     else:
         return JsonResponse({'error': form.errors})
+
+
+class SubjectView(viewsets.ModelViewSet):
+    serializer_class = SubjectSerializer
+    queryset = Subject.objects.all()

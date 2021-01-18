@@ -1,3 +1,4 @@
+from accounts.models import Subject
 from rest_framework import serializers
 from .models import Class, Review
 
@@ -31,3 +32,9 @@ class ClassSerializer():
 
     def get_serialized(self):
         return self.serialized
+
+
+class SubjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subject
+        fields = ('id', 'name')
