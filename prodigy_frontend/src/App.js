@@ -20,7 +20,7 @@ function App() {
         <Route path="/signin" exact component={signin} />
         <Route path="/signup" exact component={signup} />
         <Route path="/courses" exact component={courses} />
-        <Route path="/infopage" exact component={infopage} />
+        <Route path="/courses/:id" exact component={infopage} />
         <Route path="/listing" exact component={listing} />
       </Switch>
     </Router>

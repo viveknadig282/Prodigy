@@ -1,9 +1,24 @@
 import React from 'react'
 import course from './info.json'
 import './style.css'
+import { withRouter } from "react-router";
 import StarRatings from 'react-star-ratings';
-const Infopage = () => {
-    
+import axios from 'axios';
+
+class Infopage extends React.Component {
+    constructor(props) {
+        super(props)
+        const id = this.props.match.params.id;
+    }
+
+    getClassData = id => {
+        return axios({
+            url: `http://127.0.0.1:8000/classes/id/${id}`,
+            method: "get",
+        })
+    }
+
+    render() {
     return (
         <>
              {course.course.map((item, i) => (
@@ -28,6 +43,7 @@ const Infopage = () => {
             <button class="chatBtn">Chat</button>
         </>
     );
+    }
 }
 
-export default Infopage;
+export default withRouter(Infopage);
