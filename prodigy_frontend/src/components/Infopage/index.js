@@ -3,11 +3,6 @@ import course from './info.json'
 import './style.css'
 import { withRouter } from "react-router";
 import StarRatings from 'react-star-ratings';
-<<<<<<< HEAD
-
-const Infopage = () => {
-    
-=======
 import axios from 'axios';
 import { ThemeConsumer } from 'styled-components';
 
@@ -35,7 +30,6 @@ class Infopage extends React.Component {
     }
 
     render() {
->>>>>>> d166a0c234d3dc764bc1091ee8f9f0f5047313ad
     return (
         <>
             <tr key={this.state.id}>
