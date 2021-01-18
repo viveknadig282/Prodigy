@@ -73,8 +73,12 @@ class SubjectView(viewsets.ModelViewSet):
     queryset = Subject.objects.all()
 
 
+@csrf_exempt
 def recommendCourses(request):
     body = json.loads(request.body)
+    if body['userid'] is None:
+        return JsonResponse({'error': 'sign in'})
+
     user = User.objects.filter(pk=body['userid']).first()
     profile = Profile.objects.filter(user=user).first()
     course = profile.latest_course

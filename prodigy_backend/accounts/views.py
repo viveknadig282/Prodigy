@@ -61,7 +61,9 @@ def logout_view(request):
     # Redirect to a success page.
 
 
+@csrf_exempt
 def tookCourse(request):
+    print(request.body)
     body = json.loads(request.body)
     user = User.objects.filter(pk=body['userid']).first()
     profile = Profile.objects.filter(user=user).first()

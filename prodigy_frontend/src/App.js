@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
   getUser = () => {
-    console.log("getting user")
+    console.log(`getting user ${this.state.userid}`)
     return this.state.userid;
   }
 

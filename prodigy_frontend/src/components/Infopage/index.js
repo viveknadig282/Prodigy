@@ -28,16 +28,31 @@ class Infopage extends React.Component {
         })
     }
 
+    takeCourse = (e) => {
+        document.body.style.backgroundColor = '#33FF86';
+        axios({
+            url: "http://127.0.0.1:8000/accounts/take",
+            method: "post",
+            data: JSON.stringify({
+                'userid': this.props.getUser(),
+                'courseid': this.state.id,
+            })
+        })
+    }
+
     render() {
     return (
         <React.Fragment> 
             <tr key={this.state.id}>
+            
                 <div class="infoName"><p class="nameLabel"><strong>{this.state.course.name || ""}</strong></p></div>
                 <div class="infoSubject"><p class="teachLabel"><strong>Subject</strong> <br></br>{this.state.course.subject || ""}</p></div>
+                <button onClick={this.takeCourse}>Taken Course</button>
                 <div class="infoTeach"><p class="teachLabel"><strong>Teacher</strong> <br></br>{this.state.course.teacher || ""}</p></div>
                 <div class="infoCost"><p class="costLabel"><strong>Cost</strong><br></br>${this.state.course.cost || 0}</p></div>
                 <div class="bigContain"><p class="smallCon"><strong>Class Description:</strong><br></br>{this.state.course.desc || ""}</p></div>
                 <div class="infoRat"><p class="ratLabel"><strong>Average Rating</strong><br></br>
+                
                 <StarRatings
                     rating={parseFloat(this.state.course.avr_reviews || 0, 5)}
                     starDimension="20px"
@@ -49,6 +64,7 @@ class Infopage extends React.Component {
             </tr>
             <button id="video_button" class="callBtn" onClick={()=>window.open("https://3575491e0956.ngrok.io")}>Call</button>
             <button class="chatBtn" onClick={()=>window.open("https://3575491e0956.ngrok.io")}>Chat</button>
+            
             {/* PASTE THE NGROK LINKS HERE */}
             <a href='http://localhost:3000/rating' type="button" class="addR">
          <p class="rlabel">Rate Course</p></a>
