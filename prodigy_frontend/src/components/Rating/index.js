@@ -20,7 +20,11 @@ const Rate = () => {
         activeColor="#ffd700"
     />
   </div>
-  <textarea name="rateDesc" cols="50" rows="10" id="rateDesc" class="rateDesc"></textarea>
+  <div>
+  <textarea name="rateDesc" cols="50" rows="10" id="rateDesc" class="rateDesc"></textarea></div>
+  <a href='http://localhost:3000/' type="button" class="submitR">
+         <p class="slabel">Submit</p></a>
+
         </>
     )
 }
