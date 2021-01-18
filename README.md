@@ -1,6 +1,6 @@
 # Prodigy
 ## Created by: Vivek Nadig, Brayden Tam, Akhil Datla, Aditya Pawar
-        ![Screenshot](Prodigy.png)
+![Screenshot](Prodigy.png)
 
 
 **Prodigy** is the tool for communication between a student and a teacher. When a student finds the teacher for them, they learn so much more and they are engaged. Teachers want to share their experiences, stories, and knowledge with their students and they make the classroom enjoyable. 
