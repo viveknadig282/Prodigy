@@ -29,7 +29,7 @@ def login(request):
         if user is not None:
             # A backend authenticated the credentials
             auth_login(request, user)
-            return JsonResponse({'valid': True, 'form': form.cleaned_data})
+            return JsonResponse({'valid': True, 'id': user.id})
         else:
             return JsonResponse({'valid': False})
     else:
@@ -50,7 +50,7 @@ def signup(request):
             user=user, age=form.cleaned_data['age'], gender=form.cleaned_data['gender'])
         profile.save()
         auth_login(request, user)
-        return JsonResponse({'valid': True})
+        return JsonResponse({'valid': True, 'id': user.id})
     else:
         return JsonResponse({'error': form.errors})
 

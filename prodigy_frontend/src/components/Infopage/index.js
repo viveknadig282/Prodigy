@@ -31,7 +31,7 @@ class Infopage extends React.Component {
 
     render() {
     return (
-        <>
+        <React.Fragment> 
             <tr key={this.state.id}>
                 <div class="infoName"><p class="nameLabel"><strong>{this.state.course.name || ""}</strong></p></div>
                 <div class="infoSubject"><p class="teachLabel"><strong>Subject</strong> <br></br>{this.state.course.subject || ""}</p></div>
@@ -53,7 +53,7 @@ class Infopage extends React.Component {
             {/* PASTE THE NGROK LINKS HERE */}
             <a href='http://localhost:3000/rating' type="button" class="addR">
          <p class="rlabel">Rate Course</p></a>
-        </>
+        </React.Fragment>
     );
     }
 }

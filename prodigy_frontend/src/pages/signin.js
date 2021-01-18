@@ -1,9 +1,9 @@
 import React from 'react';
 import Login from '../components/Login';
-const signin = () => {
+const signin = (props) => {
     return (
         <>
-            <Login/>
+            <Login getUser={props.getUser} setUser={props.setUser}/>
         </>
     )
 }

@@ -14,26 +14,27 @@ class Class extends React.Component {
 
     render() {
     return (
-        // eslint-disable-next-line
-        <a href={`/courses/${this.props.value}`}>
-        {/* <SubmitSignupLink to="/" class="submitButton">Submit</SubmitSignupLink> */}
-            <button className="Course_container" id={`class${this.props.value}`} onClick={this.props.onClick}>
-                <span>
-                    <CourseLink to={`/courses/${this.props.value}`}>
-                        <h3 className="Course_name">{this.props.name}</h3>
-                        <h3 className="Course_teacher">{this.props.teacher}</h3>
-                        <h3 className="Course_cost">${this.props.cost}</h3>
-                        <StarRatings
-                            rating={parseFloat(this.props.avr_rating, 5)}
-                            starDimension="20px"
-                            starSpacing="15px"
-                            starRatedColor="RGB(255,255,0)"
-                            starEmptyColor="RGB(255,255,255)"
-                        />
-                    </CourseLink>
-                </span>
-            </button>
-        </a>   
+        <React.Fragment>
+            <a href={`/courses/${this.props.value}`}>
+            {/* <SubmitSignupLink to="/" class="submitButton">Submit</SubmitSignupLink> */}
+                <button className="Course_container" id={`class${this.props.value}`} onClick={this.props.onClick}>
+                    <span>
+                        <CourseLink to={`/courses/${this.props.value}`}>
+                            <h3 className="Course_name">{this.props.name}</h3>
+                            <h3 className="Course_teacher">{this.props.teacher}</h3>
+                            <h3 className="Course_cost">${this.props.cost}</h3>
+                            <StarRatings
+                                rating={parseFloat(this.props.avr_rating, 5)}
+                                starDimension="20px"
+                                starSpacing="15px"
+                                starRatedColor="RGB(255,255,0)"
+                                starEmptyColor="RGB(255,255,255)"
+                            />
+                        </CourseLink>
+                    </span>
+                </button>
+            </a>
+        </React.Fragment>
         );
     }
 }

@@ -39,12 +39,12 @@ class Login extends React.Component {
                     validity: "The username or password was incorrect"
                 })
             } else {
-
                 this.setState({
                     passwordStatus: "",
                     usernameStatus: "",
                     validity: "Redirecting..."
                 }) 
+                this.props.setUser(response.data.id)
             }
         }
         
@@ -73,35 +73,35 @@ class Login extends React.Component {
     }
     render() {
     
-    return <>
-        <section>
-        <form>
-            
-            <div class="spaceTop">
-            <label className="error">{this.state.validity}</label>
-                <label htmlFor="username" class="labelLogin">Username:</label>
-                <input type="text" name="username" id="username" className="loginInput"/>
-                <br></br>
-                <label className="error">{this.state.usernameStatus}</label>
+    return (
+        <React.Fragment>
+            <section>
+            <form>
+                <div class="spaceTop">
+                <label className="error">{this.state.validity}</label>
+                    <label htmlFor="username" class="labelLogin">Username:</label>
+                    <input type="text" name="username" id="username" className="loginInput"/>
+                    <br></br>
+                    <label className="error">{this.state.usernameStatus}</label>
+                </div>
+                <div>
+                    <label htmlFor="password" class="labelLogin">Password:</label>
+                    <input type="password" name="password" id="password" class="loginInput"/>
+                    <br></br>
+                    <label className="error">{this.state.passwordStatus}</label>
+                </div>
+                <div class="container1">
+                <input type="submit" class="submit"/>
+                {/* <Submit /> */}
+                {/* eslint-disable-next-line */}
+                <button className="submitButton" href="#" onClick={this.SubmitHandler}>
+                    Submit
+                </button>
             </div>
-            <div>
-                <label htmlFor="password" class="labelLogin">Password:</label>
-                <input type="password" name="password" id="password" class="loginInput"/>
-                <br></br>
-                <label className="error">{this.state.passwordStatus}</label>
-            </div>
-            <div class="container1">
-            <input type="submit" class="submit"/>
-            {/* <Submit /> */}
-            {/* eslint-disable-next-line */}
-            <button className="submitButton" href="#" onClick={this.SubmitHandler}>
-                Submit
-            </button>
-        </div>
-        </form>
-        </section>
-        </>
-    
+            </form>
+            </section>
+        </React.Fragment>
+        )
     }
 }
 

@@ -4,29 +4,50 @@ import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages';
 import About from './pages/about';
-import signin from './pages/signin';
-import signup from './pages/signup';
-import courses from './pages/courses';
-import infopage from './pages/infopage';
-import listing from './pages/listing';
+import Signin from './pages/signin';
+import Signup from './pages/signup';
+import Courses from './pages/courses';
+import Infopage from './pages/infopage';
+import Listing from './pages/listing';
 import Rating from './pages/rating';
 
-function App() {
-  return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/about" exact component={About} />
-        <Route path="/signin" exact component={signin} />
-        <Route path="/signup" exact component={signup} />
-        <Route path="/courses" exact component={courses} />
-        <Route path="/courses/:id" exact component={infopage} />
-        <Route path="/listing" exact component={listing} />
-        <Route path="/rating" exact component={Rating} />
-      </Switch>
-    </Router>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      userid: null
+    }
+  }
+
+  setUser = id => {
+    console.log("setting user")
+    this.setState({
+      userid: id
+    })
+  }
+
+  getUser = () => {
+    console.log("getting user")
+    return this.state.userid;
+  }
+
+  render() {
+    return (
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/about" exact render={ (props) => <About {...props} setUser={this.setUser} getUser={this.getUser}/> }/>
+          <Route path="/signin" exact render={ (props) => <Signin {...props} setUser={this.setUser} getUser={this.getUser}/> }/>
+          <Route path="/signup" exact render={ (props) => <Signup {...props} setUser={this.setUser} getUser={this.getUser}/> }/>
+          <Route path="/courses" exact render={ (props) => <Courses {...props} setUser={this.setUser} getUser={this.getUser}/> }/>
+          <Route path="/courses/:id" exact render={ (props) => <Infopage {...props} setUser={this.setUser} getUser={this.getUser}/> }/>
+          <Route path="/listing" exact render={ (props) => <Listing {...props} setUser={this.setUser} getUser={this.getUser}/> }/>
+          <Route path="/rating" exact render={ (props) => <Rating {...props} setUser={this.setUser} getUser={this.getUser}/> }/>
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;

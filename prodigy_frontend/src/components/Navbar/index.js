@@ -3,7 +3,7 @@ import {Nav, NavLink, NavBtn, NavBtnLink} from './NavbarElement'
 
 const Navbar = () => {
     return (
-        <>
+        <React.Fragment>
           <Nav>
               <NavLink to="/">
                   <img src="logo50.png" alt="Logo"></img>
@@ -24,7 +24,7 @@ const Navbar = () => {
               
 
           </Nav>
-        </>
+        </React.Fragment>
     )
 }
 

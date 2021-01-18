@@ -1,10 +1,10 @@
 import React from 'react'
 import Infopage from '../components/Infopage';
 
-const infopage = () => {
+const infopage = (props) => {
     return (
         <>
-            <Infopage></Infopage>
+            <Infopage getUser={props.getUser} setUser={props.setUser}></Infopage>
         </>
     )
 }

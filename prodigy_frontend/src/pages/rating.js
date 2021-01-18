@@ -1,10 +1,10 @@
 import React from 'react'
 import Rate from '../components/Rating'
 
-const Rating = () => {
+const Rating = (props) => {
     return (
         <div>
-            <Rate></Rate>
+            <Rate getUser={props.getUser} setUser={props.setUser}></Rate>
         </div>
     )
 }
