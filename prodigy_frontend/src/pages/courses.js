@@ -11,9 +11,12 @@ let getClasses = async () => {
 
 const courses = () => {
     return (
+        <>
         <div>
             <Course getCourses={getClasses}></Course>
         </div>
+        
+        </>
     )
 }
 
