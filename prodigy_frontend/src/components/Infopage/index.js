@@ -30,7 +30,7 @@ class Infopage extends React.Component {
 
     render() {
     return (
-        <>
+        <React.Fragment> 
             <tr key={this.state.id}>
                 <div class="infoName"><p class="nameLabel"><strong>{this.state.course.name || ""}</strong></p></div>
                 <div class="infoSubject"><p class="teachLabel"><strong>Subject</strong> <br></br>{this.state.course.subject || ""}</p></div>
@@ -49,7 +49,7 @@ class Infopage extends React.Component {
             </tr>
             <button id="video_button" class="callBtn" onClick={()=>window.open("https://3575491e0956.ngrok.io")}>Call</button>
             <button class="chatBtn">Chat</button>
-        </>
+        </React.Fragment>
     );
     }
 }

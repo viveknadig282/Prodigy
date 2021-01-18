@@ -55,7 +55,9 @@ class Signup extends React.Component {
                     ageStatus: "",
                     genderStatus: "",
                     validity: "Redirecting..."
+                    
                 }) 
+                this.props.setUser(response.data.id)
             }
         } else if (response.data.hasOwnProperty('error')) {
             this.setState({
@@ -110,54 +112,55 @@ class Signup extends React.Component {
     }
     render() {
         
-        return <>
-            <section>
-            <div class="spaceTopSignup">
-                <label className="error">{this.state.validity}</label>
-                <label htmlFor="username" class="labelSignup">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username:</label>
-                <input type="text" name="username" id="username" class="loginInput"/>
-                <br></br>
-                <label className="error">{this.state.usernameStatus}</label>
-            </div>
-            <div>
-                <label htmlFor="password" class="labelSignup">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password:</label>
-                <input type="password" name="password" id="password" class="loginInput"/>
-                <br></br>
-                <label className="error">{this.state.passwordStatus}</label>
-            </div>
-            <div>
-                <label htmlFor="email" class="labelSignup">Email:</label>
-                <input type="text" name="email" id="email" class="loginInput"/>
-                <br></br>
-                <label className="error">{this.state.emailStatus}</label>
-            </div>
-            <div>
-                <label htmlFor="age" class="labelSignup">Age:</label>
-                <input type="number" name="age" id="age" class="loginInput"/>
-                <br></br>
-                <label className="error">{this.state.ageStatus}</label>
-            </div>
-            <div>
-                <label class="gender">Gender:&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;&nbsp;F</label>
-            <label class="switch">
-                <input type="checkbox" id="gender" />
-                <span class="slider round"></span>
-            </label>
-                <br></br>
-                <label className="error">{this.state.genderStatus}</label>
-            </div>
-            <div class="container1">
-            <button className="submitButton" onClick={this.SubmitSignupHandler}>
-                Submit
-            </button>
-            {/* eslint-disable-next-line */}
-            {/* <a href="#" onClick={this.SubmitSignupHandler}>
-                <SubmitSignupLink to="/" class="submitButton">Submit</SubmitSignupLink>
-            </a> */}
-            </div>
-            </section>
-            </>
-        
+        return (
+            <React.Fragment>
+                <section>
+                    <div class="spaceTopSignup">
+                        <label className="error">{this.state.validity}</label>
+                        <label htmlFor="username" class="labelSignup">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username:</label>
+                        <input type="text" name="username" id="username" class="loginInput"/>
+                        <br></br>
+                        <label className="error">{this.state.usernameStatus}</label>
+                    </div>
+                    <div>
+                        <label htmlFor="password" class="labelSignup">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password:</label>
+                        <input type="password" name="password" id="password" class="loginInput"/>
+                        <br></br>
+                        <label className="error">{this.state.passwordStatus}</label>
+                    </div>
+                    <div>
+                        <label htmlFor="email" class="labelSignup">Email:</label>
+                        <input type="text" name="email" id="email" class="loginInput"/>
+                        <br></br>
+                        <label className="error">{this.state.emailStatus}</label>
+                    </div>
+                    <div>
+                        <label htmlFor="age" class="labelSignup">Age:</label>
+                        <input type="number" name="age" id="age" class="loginInput"/>
+                        <br></br>
+                        <label className="error">{this.state.ageStatus}</label>
+                    </div>
+                    <div>
+                        <label class="gender">Gender:&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;&nbsp;F</label>
+                    <label class="switch">
+                        <input type="checkbox" id="gender" />
+                        <span class="slider round"></span>
+                    </label>
+                        <br></br>
+                        <label className="error">{this.state.genderStatus}</label>
+                    </div>
+                    <div class="container1">
+                    <button className="submitButton" onClick={this.SubmitSignupHandler}>
+                        Submit
+                    </button>
+                    {/* eslint-disable-next-line */}
+                    {/* <a href="#" onClick={this.SubmitSignupHandler}>
+                        <SubmitSignupLink to="/" class="submitButton">Submit</SubmitSignupLink>
+                    </a> */}
+                    </div>
+                </section>
+            </React.Fragment>
+        );
     }
 }
 

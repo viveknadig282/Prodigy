@@ -9,10 +9,10 @@ let getClasses = async () => {
     })
 }
 
-const courses = () => {
+const courses = (props) => {
     return (
         <div>
-            <Course getCourses={getClasses}></Course>
+            <Course getCourses={getClasses} getUser={props.getUser} setUser={props.setUser}></Course>
         </div>
     )
 }
