@@ -3,7 +3,7 @@ import './style.css'
 import { withRouter } from "react-router";
 import StarRatings from 'react-star-ratings';
 import axios from 'axios';
-import { ThemeConsumer } from 'styled-components';
+// import { ThemeConsumer } from 'styled-components';
 
 class Infopage extends React.Component {
     constructor(props) {

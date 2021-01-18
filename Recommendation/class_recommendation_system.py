@@ -14,7 +14,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 import json
 
 # fake json string
-data = '{"col1":{"row1":1,"row2":2,"row3":3},"col2":{"row1":"x","row2":"y","row3":"z"}}'
+data = '{"":{"row1":1,"row2":2,"row3":3},"col2":{"row1":"x","row2":"y","row3":"z"}}'
 
 # read json to data frame
 df = pd.read_json(data)

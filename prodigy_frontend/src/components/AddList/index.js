@@ -1,6 +1,6 @@
 import React from 'react'
 import './listing.css'
-import {SubmitListingLink} from './ListingElement'
+// import {SubmitListingLink} from './ListingElement'
 import axios from 'axios';
 
 class Listing extends React.Component {

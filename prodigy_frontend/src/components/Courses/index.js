@@ -14,7 +14,7 @@ class Class extends React.Component {
 
     render() {
     return (
-        <React.Fragment>
+        <>
             <a href={`/courses/${this.props.value}`}>
             {/* <SubmitSignupLink to="/" class="submitButton">Submit</SubmitSignupLink> */}
                 <button className="Course_container" id={`class${this.props.value}`} onClick={this.props.onClick}>
@@ -34,7 +34,7 @@ class Class extends React.Component {
                     </span>
                 </button>
             </a>
-        </React.Fragment>
+        </>
         );
     }
 }
