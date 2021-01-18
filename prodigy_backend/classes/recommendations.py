@@ -14,82 +14,85 @@ from sklearn.feature_extraction.text import CountVectorizer
 import json
 
 # fake json string
-data = '{"":{"row1":1,"row2":2,"row3":3},"col2":{"row1":"x","row2":"y","row3":"z"}}'
-
-# read json to data frame
-df = pd.read_json(data)
-print(df)
-
-pd.set_option('display.max_columns', 10)
-# df = pd.read_csv('/Recommendation/data_file.csv') <- probably won't need this
-print(df.head())
-
-print(df.shape)
-
-df = df[['Class-Title', 'Class-Type', 'Tutor', 'Desc']]
-print(df.head())
-
-# discarding the commas between the tutor's full names and getting only the first three names
-df['Tutor'] = df['Tutor'].map(lambda x: x.split(','))
-
-# merging together first and last name for each tutor, so it's considered as one word
-for index, row in df.iterrows():
-    row['Tutor'] = [x.lower().replace(' ', '') for x in row['Tutor']]
-print(df.head(10))
-
-# initializing the new column
-df['Key_words'] = ""
-
-for index, row in df.iterrows():
-    description = row['Desc']
-
-    # instantiating Rake, uses english stopwords from NLTK and discard all puntuation characters
-    x = Rake()
-
-    # extracting the words by passing the text
-    x.extract_keywords_from_text(description)
-
-    # getting the dictionary whith key words and their scores
-    key_words_dict_scores = x.get_word_degrees()
-
-    # assigning the key words to the new column
-    row['Key_words'] = list(key_words_dict_scores.keys())
-
-# dropping the description column
-df.drop(columns=['Desc'], inplace=True)
-
-df.set_index('Class-Title', inplace=True)
-print(df.head())
-
-df['combined_words'] = ''
-columns = df.columns
-for index, row in df.iterrows():
-    words = ''
-    for col in columns:
-        words = words + ' '.join(row[col]) + ' '
-    row['combined_words'] = words
-
-df.drop(columns=[col for col in df.columns if col !=
-                 'combined_words'], inplace=True)
-
-print(df.head())
-
-# instantiating and generating the count matrix
-count = CountVectorizer()
-count_matrix = count.fit_transform(df['combined_words'])
-
-# creating a Series for the class titles so they are associated to an ordered numerical
-indices = pd.Series(df.index)
-print(indices[:5])
-
-# generating the cosine similarity matrix
-cosine_sim = cosine_similarity(count_matrix, count_matrix)
-print(cosine_sim)
-
-# creating a Series for the class titles so they are associated to an ordered numerical
+data = '{"Class-Title":{"row1":1,"row2":2,"row3":3},"Class-Type":{"row1":"x","row2":"y","row3":"z"},"Tutor":{"row1":1,"row2":2,"row3":3},"Desc":{"row1":1,"row2":2,"row3":3}'
 
 
-def recommendations(title, cosine_sim=cosine_sim):
+def processing(data):
+    global cosine_sim, indices
+    # read json to data frame
+    df = pd.read_json(data)
+    # print(df)
+
+    pd.set_option('display.max_columns', 10)
+
+    # print(df.head())
+
+    # print(df.shape)
+
+    df = df[['Class-Title', 'Class-Type', 'Tutor', 'Desc']]
+    # print(df.head())
+
+    # discarding the commas between the tutor's full names and getting only the first three names
+    df['Tutor'] = df['Tutor'].map(lambda x: x.split(','))
+
+    # merging together first and last name for each tutor, so it's considered as one word
+    for index, row in df.iterrows():
+        row['Tutor'] = [x.lower().replace(' ', '') for x in row['Tutor']]
+    # print(df.head(10))
+
+    # initializing the new column
+    df['Key_words'] = ""
+
+    for index, row in df.iterrows():
+        description = row['Desc']
+
+        # instantiating Rake, uses english stopwords from NLTK and discard all puntuation characters
+        x = Rake()
+
+        # extracting the words by passing the text
+        x.extract_keywords_from_text(description)
+
+        # getting the dictionary whith key words and their scores
+        key_words_dict_scores = x.get_word_degrees()
+
+        # assigning the key words to the new column
+        row['Key_words'] = list(key_words_dict_scores.keys())
+
+    # dropping the description column
+    df.drop(columns=['Desc'], inplace=True)
+
+    df.set_index('Class-Title', inplace=True)
+    # print(df.head())
+
+    df['combined_words'] = ''
+    columns = df.columns
+    for index, row in df.iterrows():
+        words = ''
+        for col in columns:
+            words = words + ' '.join(row[col]) + ' '
+        row['combined_words'] = words
+
+    df.drop(columns=[col for col in df.columns if col !=
+                     'combined_words'], inplace=True)
+
+    # print(df.head())
+
+    # instantiating and generating the count matrix
+    count = CountVectorizer()
+    count_matrix = count.fit_transform(df['combined_words'])
+
+    # creating a Series for the class titles so they are associated to an ordered numerical
+    indices = pd.Series(df.index)
+    # print(indices[:5])
+
+    # generating the cosine similarity matrix
+    return cosine_similarity(count_matrix, count_matrix), df
+    # print(cosine_sim)
+
+    # creating a Series for the class titles so they are associated to an ordered numerical
+
+
+def recommendations(title, cosine_sim, df):
 
     recommended_classes = []
 
@@ -100,7 +103,7 @@ def recommendations(title, cosine_sim=cosine_sim):
     score_series = pd.Series(cosine_sim[idx]).sort_values(ascending=False)
 
     # getting the indexes of the 5 most similar classes
-    top_indexes = list(score_series.iloc[1:6].index)
+    top_indexes = list(score_series.iloc[1:].index)
 
     for i in top_indexes:
         recommended_classes.append(list(df.index)[i])
@@ -108,4 +111,4 @@ def recommendations(title, cosine_sim=cosine_sim):
     return recommended_classes
 
 
-recommendations('Algebra II')
+# recommendations('Algebra II')

@@ -1,5 +1,5 @@
 from json.encoder import JSONEncoder
-from django.http.response import JsonResponse
+from django.http.response import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
@@ -9,10 +9,12 @@ from rest_framework import viewsets
 
 from django.contrib.auth.models import User
 from accounts.models import Profile, Subject
-from .recommendations import *
+from .recommendations import processing, recommendations
 from .serializers import ClassSerializer, ClassModelSerializer, SubjectSerializer
 from .models import Class, Review
 from .forms import NewClassForm
+import json
+from random import randint
 
 
 # @login_required(login_url='/accounts/login/')
@@ -69,3 +71,40 @@ def createClassView(request):
 class SubjectView(viewsets.ModelViewSet):
     serializer_class = SubjectSerializer
     queryset = Subject.objects.all()
+
+
+def recommendCourses(request):
+    body = json.loads(request.body)
+    user = User.objects.filter(pk=body['userid']).first()
+    profile = Profile.objects.filter(user=user).first()
+    course = profile.latest_course
+    class_name = Class.objects.filter(id=course).first().name
+
+    classtitles = []
+    classtypes = []
+    teachers = []
+    descriptions = []
+
+    classes = Class.objects.all()
+
+    for c in classes:
+        classtitles.append(c.name)
+        classtypes.append(c.subject.name)
+        teachers.append(c.teacher.user.username)
+        descriptions.append(c.desc)
+
+    data = json.dumps({'Class-Title': classtitles, 'Class-Type': classtypes,
+                       'Tutor': teachers, 'Desc': descriptions})
+
+    cosine_sim, df = processing(data)
+    # index = randint(0, len(classes)-1)
+    # title = classes[index].name
+    recs = recommendations(class_name, cosine_sim, df)
+    courses = []
+    for rec in recs:
+        c = Class.objects.filter(name=rec).first()
+        serializer = ClassSerializer(c)
+        courses.append(serializer.get_serialized())
+
+    # {'Selected course': class_name, 'Recommendations': recs}
+    return JsonResponse({'courses': courses})

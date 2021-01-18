@@ -1,3 +1,4 @@
+from django.http.request import HttpRequest
 from django.shortcuts import render
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import authenticate, logout
@@ -11,6 +12,7 @@ from rest_framework import viewsets
 from .serializers import ProfileSerializer
 from .forms import ProfileCreationForm, ProfileForm
 from .models import Profile, Subject
+import json
 
 
 class ProfileView(viewsets.ModelViewSet):
@@ -57,3 +59,13 @@ def signup(request):
 def logout_view(request):
     logout(request)
     # Redirect to a success page.
+
+
+def tookCourse(request):
+    body = json.loads(request.body)
+    user = User.objects.filter(pk=body['userid']).first()
+    profile = Profile.objects.filter(user=user).first()
+    profile.latest_course = body['courseid']
+    profile.save()
+
+    return JsonResponse({'saved': True})

@@ -10,5 +10,6 @@ router.register(r'profiles', views.ProfileView, basename='profiles')
 urlpatterns = [
     path('login', views.login, name='login'),
     path('signup', views.signup, name='signup'),
+    path('take', views.tookCourse, name='when the user takes the course'),
     path('api/', include(router.urls), name='profiles'),
 ]
