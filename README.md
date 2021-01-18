@@ -1,2 +1,4 @@
 # Prodigy: become a prodigy
-![Screenshot](Prodigy.png)
+<p align="center">
+  ![Screenshot](Prodigy.png)
+</p>
