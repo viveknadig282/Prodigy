@@ -9,6 +9,7 @@ import signup from './pages/signup';
 import courses from './pages/courses';
 import infopage from './pages/infopage';
 import listing from './pages/listing';
+import Rating from './pages/rating';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/courses" exact component={courses} />
         <Route path="/courses/:id" exact component={infopage} />
         <Route path="/listing" exact component={listing} />
+        <Route path="/rating" exact component={Rating} />
       </Switch>
     </Router>
   );

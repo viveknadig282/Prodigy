@@ -21,7 +21,7 @@ class Class extends React.Component {
                     <CourseLink to={`/courses/${this.props.value}`}>
                         <h3 className="Course_name">{this.props.name}</h3>
                         <h3 className="Course_teacher">{this.props.teacher}</h3>
-                        <h3 className="Course_cost">{this.props.cost}</h3>
+                        <h3 className="Course_cost">${this.props.cost}</h3>
                         <StarRatings
                             rating={parseFloat(this.props.avr_rating, 5)}
                             starDimension="20px"
