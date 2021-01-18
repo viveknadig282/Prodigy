@@ -7,7 +7,7 @@ const Rate = () => {
         console.log(newRating);
       };
     return (
-        <>
+        <React.Fragment>
         <div class="star">
             <ReactStars
         count={5}
@@ -25,7 +25,7 @@ const Rate = () => {
   <a href='http://localhost:3000/' type="button" class="submitR">
          <p class="slabel">Submit</p></a>
 
-        </>
+        </React.Fragment>
     )
 }
 

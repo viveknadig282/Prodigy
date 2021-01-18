@@ -1,3 +1,4 @@
+from django.http.request import HttpRequest
 from django.shortcuts import render
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import authenticate, logout
@@ -9,9 +10,9 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
 
 from .serializers import ProfileSerializer
-from classes.recommendations import sim
 from .forms import ProfileCreationForm, ProfileForm
 from .models import Profile, Subject
+import json
 
 
 class ProfileView(viewsets.ModelViewSet):
@@ -29,7 +30,7 @@ def login(request):
         if user is not None:
             # A backend authenticated the credentials
             auth_login(request, user)
-            return JsonResponse({'valid': True, 'form': form.cleaned_data})
+            return JsonResponse({'valid': True, 'id': user.id})
         else:
             return JsonResponse({'valid': False})
     else:
@@ -50,7 +51,7 @@ def signup(request):
             user=user, age=form.cleaned_data['age'], gender=form.cleaned_data['gender'])
         profile.save()
         auth_login(request, user)
-        return JsonResponse({'valid': True})
+        return JsonResponse({'valid': True, 'id': user.id})
     else:
         return JsonResponse({'error': form.errors})
 
@@ -60,28 +61,13 @@ def logout_view(request):
     # Redirect to a success page.
 
 
-def test(request):
-    user = User("myusername", "myemail@email.com", "mypassword")
-    math = Subject(id=1, name="math")
-    science = Subject(id=2, name="sciaskfasce")
-    eng = Subject(id=3, name="eng")
-    art = Subject(id=5, name="art")
+@csrf_exempt
+def tookCourse(request):
+    print(request.body)
+    body = json.loads(request.body)
+    user = User.objects.filter(pk=body['userid']).first()
+    profile = Profile.objects.filter(user=user).first()
+    profile.latest_course = body['courseid']
+    profile.save()
 
-    viv = Profile(user=user, age=15, gender=1, fields_interest=eng, fields_help=math, challenging_courses=True,
-                  study_time=1, careers_interest=7, sports_interest=2)
-
-    ak = Profile(user=user, age=20, gender=1, fields_interest=science, fields_help=eng, challenging_courses=True,
-                 study_time=2, careers_interest=7, sports_interest=7)
-
-    bestprofile = Profile(user=user, age=58, gender=4, fields_interest=art, fields_help=science, challenging_courses=False,
-                          study_time=3, careers_interest=2, sports_interest=5)
-
-    akviv = sim(ak, viv)
-    akad = sim(ak, bestprofile)
-    vivad = sim(viv, bestprofile)
-
-    return JsonResponse({
-        'akhil vivek': akviv,
-        'akhil adi': akad,
-        'vivek adi': vivad
-    })
+    return JsonResponse({'saved': True})

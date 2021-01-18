@@ -1,10 +1,10 @@
 import React from 'react';
 import Listing from '../components/AddList';
 
-const listing = () => {
+const listing = (props) => {
     return (
         <div>
-            <Listing />
+            <Listing getUser={props.getUser} setUser={props.setUser}/>
         </div>
     )
 }

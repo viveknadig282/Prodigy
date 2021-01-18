@@ -17,6 +17,7 @@ class Profile(models.Model):
     age = models.PositiveIntegerField()
 
     gender = models.BooleanField(default=True)  # true: Male, false: Female
+    latest_course = models.PositiveIntegerField(default=2)
     # # 1: Math, 2: Science, 3: Engineering, 4: Social Studies, 5: Art, 6: Music
     # fields_interest = models.ForeignKey(
     #     Subject, on_delete=models.PROTECT, null=True, related_name="fields_of_interest")

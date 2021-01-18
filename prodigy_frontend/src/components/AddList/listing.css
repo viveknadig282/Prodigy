@@ -1,63 +1,61 @@
-.container1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    text-decoration: none;
-    
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  text-decoration: none;
 }
-*.focus{
-    border: none;
-    outline: none;
+*.focus {
+  border: none;
+  outline: none;
 }
 .submitButton {
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    width: 250px;
-    background-color: blue;
-    color: white;
-    text-decoration: none;
-    font-family: verdana;
-
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 250px;
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+  font-family: verdana;
 }
-.submit{
-    text-decoration: none;
-    display: none;
+.submit {
+  text-decoration: none;
+  display: none;
 }
-div{
-    text-decoration: none;
-    text-align: center;    
-}
-
-.spaceTopListing{
-    text-decoration: none;
-    margin-top: 100px;
-}
-.labelAdd{
-    text-decoration: none;
-    display: block;
-    color:  black;
-    font-size: 15px;
-    font-family: verdana;
-    transition: 0.4s;
-    position: relative;
-    margin-top: 20px;
-    margin-right: 170px;
+div {
+  text-decoration: none;
+  text-align: center;
 }
 
-.loginInput{
-    border: none;
-    border-radius: 25px;
-    height: 50px;
-    width: 250px;
-    margin-bottom: 10px;
-    font-family: verdana;
-    padding-right: -5px;
+.spaceTopListing {
+  text-decoration: none;
+  margin-top: 100px;
 }
-.loginInput2{
+.labelAdd {
+  text-decoration: none;
+  display: block;
+  color: black;
+  font-size: 15px;
+  font-family: verdana;
+  transition: 0.4s;
+  position: relative;
+  margin-top: 20px;
+  margin-right: 170px;
+}
+
+.loginInput {
+  border: none;
+  border-radius: 25px;
+  height: 50px;
+  width: 250px;
+  margin-bottom: 10px;
+  font-family: verdana;
+  padding-right: -5px;
+}
+.loginInput2 {
   border: none;
   border-radius: 25px;
   height: 250px;
@@ -67,4 +65,20 @@ div{
   line-break: auto;
   font-family: verdana;
   word-wrap: break-word;
+}
+
+#courseName,
+#cost {
+  border: none;
+  font-size: 17px;
+  border-radius: 25px;
+  height: 50px;
+  width: 250px;
+  margin-bottom: 10px;
+  /* padding: 0px; */
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
