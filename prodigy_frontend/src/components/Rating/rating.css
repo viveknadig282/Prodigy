@@ -1,0 +1,20 @@
+.star{
+    margin-top: 50px;
+    margin-left: 42%;
+    background-color: white;
+    width: 250px;
+    height: 75px;
+    padding-left: 45px;
+    border-radius: 20px;
+
+}
+
+.rateDesc{
+    margin-top: 40px;
+    width: 260px;
+    padding: 20px 20px;
+    height: 500px;
+    font-family: verdana;
+    font-size: 17px;
+    border-radius: 20px;
+}

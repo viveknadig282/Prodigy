@@ -2,7 +2,7 @@ import React from 'react'
 import course from './info.json'
 import './style.css'
 import StarRatings from 'react-star-ratings';
-import {addRate} from './rateElement'
+
 const Infopage = () => {
     
     return (
