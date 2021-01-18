@@ -45,7 +45,9 @@
                     for (let i = 0; i < messages.length; i++) {
                         let message = messages[i].split(":");
                         let item = document.createElement("div");
-                        item.innerText = message[0] + message[1];
+                        item.className = "msgSent";
+                        item.innerHTML = "&nbsp;&nbsp;" + message[0] + ":&nbsp;" +message[1];
+
                         
                         appendLog(item);
                     }
@@ -96,7 +98,17 @@
             bottom: 1em;
             z-index: 10;
         }
-
+        .msgSent{
+            height: 45px;
+            font-weight: bold;
+            background-color: white;
+            font-family: verdana;
+            border-radius: 20px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin: 10px;
+        }
 
         .sendButton{
             background-color: white;
@@ -108,10 +120,14 @@
             border-radius: 10px;
         }
         .inputForm{
-            border-radius: 10px;
+            border-radius: 20px;
             border: none;
+            font-family: verdana;
+            font-size: 20px;
             outline: none;
-            margin-left: 40px;
+            display: flex;
+            width: 500px;
+
         }
     </style>
 </head>

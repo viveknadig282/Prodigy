@@ -13,13 +13,13 @@
     text-align: center;
 }
 .participant div:first-child {
-    width: 50%;
+    width: 50vh;
     height: auto;
     background-color: #ccc;
     border: 1px solid black;
 }
 .participant div {
-    width: 50%;
+    width: 50vh;
     height: auto;
     background-color: #ccc;
     border: 1px solid black;
@@ -39,6 +39,14 @@
 .participantHidden {
     display: none;
 }
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* add different prefixes */
+    transform: translate(-50%, -50%);
+  }
 
 #join_leave{
     display:inline-block;
@@ -65,3 +73,39 @@
     margin:0.2em auto;
     }
 }
+
+.vidTitle{
+    font-family: verdana;
+    text-align: center;
+}
+.name{
+    font-family: verdana;
+    font-weight: bold;
+    padding-right: 10px;
+}
+*{
+    background-color: #91E5F6;
+}
+.inVideo{
+    border-radius: 20px;
+    background-color: white;
+    height: 40px;
+    width: 200px;
+    outline: none;
+    border: none;
+}
+.join{
+    margin-left: 30px;
+    border-radius: 20px;
+    background-color: lightgreen;
+    height: 40px;
+    width: 100px;
+}
+.share{
+    margin-left: 20px;
+    border-radius: 20px;
+    background-color: rgb(200, 200, 200);
+    height: 40px;
+    width: 100px;
+}
+
