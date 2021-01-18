@@ -1,5 +1,4 @@
 import React from 'react'
-import course from './info.json'
 import './style.css'
 import { withRouter } from "react-router";
 import StarRatings from 'react-star-ratings';
