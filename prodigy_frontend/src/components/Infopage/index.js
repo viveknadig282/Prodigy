@@ -3,6 +3,7 @@ import './style.css'
 import { withRouter } from "react-router";
 import StarRatings from 'react-star-ratings';
 import axios from 'axios';
+// eslint-disable-next-line
 import { ThemeConsumer } from 'styled-components';
 
 class Infopage extends React.Component {
@@ -48,7 +49,8 @@ class Infopage extends React.Component {
                 </p></div>
             </tr>
             <button id="video_button" class="callBtn" onClick={()=>window.open("https://3575491e0956.ngrok.io")}>Call</button>
-            <button class="chatBtn">Chat</button>
+            <button class="chatBtn" onClick={()=>window.open("https://3575491e0956.ngrok.io")}>Chat</button>
+            {/* PASTE THE NGROK LINKS HERE */}
             <a href='http://localhost:3000/rating' type="button" class="addR">
          <p class="rlabel">Rate Course</p></a>
         </>
