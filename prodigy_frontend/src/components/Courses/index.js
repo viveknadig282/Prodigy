@@ -1,4 +1,5 @@
 import React from 'react'
+// eslint-disable-next-line
 import courses from './courseObject.json'
 import './course.css'
 import StarRatings from 'react-star-ratings';
@@ -14,11 +15,12 @@ class Class extends React.Component {
 
     render() {
     return (
+        // eslint-disable-next-line
         <a href="#">
         {/* <SubmitSignupLink to="/" class="submitButton">Submit</SubmitSignupLink> */}
             <button className="Course_container" id={`class${this.props.value}`} onClick={this.props.onClick}>
                 <span>
-                    <CourseLink to={`/courses/${this.props.value}`}>
+                    <CourseLink to="/infopage">
                         <h3 className="Course_name">{this.props.name}</h3>
                         <h3 className="Course_teacher">{this.props.teacher}</h3>
                         <h3 className="Course_cost">${this.props.cost}</h3>
@@ -59,7 +61,6 @@ class Course extends React.Component {
 
     handleClick = (event) => {
         console.log(event.target.id)
-
         // console.log(document.getElementById(`class${i}`));
     }
 

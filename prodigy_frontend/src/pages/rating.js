@@ -1,9 +1,10 @@
 import React from 'react'
+import Rate from '../components/Rating'
 
 const Rating = () => {
     return (
         <div>
-            adf
+            <Rate></Rate>
         </div>
     )
 }
