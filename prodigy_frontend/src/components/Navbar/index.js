@@ -6,7 +6,7 @@ const Navbar = () => {
         <>
           <Nav>
               <NavLink to="/">
-                  <img src="favicon.ico" alt="Logo"></img>
+                  <img src="logo50.png" alt="Logo"></img>
               </NavLink>
               <NavBtn>
               <NavBtnLink to="/listing">Add Course</NavBtnLink>
