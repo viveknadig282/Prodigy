@@ -107,5 +107,3 @@ def recommendations(title, cosine_sim=cosine_sim):
 
     return recommended_classes
 
-
-recommendations('Algebra II')
